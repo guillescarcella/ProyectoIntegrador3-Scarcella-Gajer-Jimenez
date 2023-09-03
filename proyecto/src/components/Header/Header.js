@@ -1,10 +1,24 @@
-import React from 'react'
-import './styles.css'
+import React, {Component} from 'react';
 
-function Header () {
-    return (
-        <h2>hola</h2>
-    );
+class Header extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+
+        }
+    }
+
+    render() {
+        return(
+            <nav className="header">
+                <img className= "imagen"src="./logo512" alt="logo"></img>
+                <ul >
+                   Links
+                </ul>
+            </nav>
+
+        )
+    }
 }
 
 export default Header

@@ -5,7 +5,6 @@ function NotFound(){
         <article>
             <div >
             <img className="error" src="img/error-404.png" alt='Not Found'></img>
-                
             </div>
             
         </article>
