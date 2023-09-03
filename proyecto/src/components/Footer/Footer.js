@@ -9,13 +9,11 @@ class Footer extends Component{
     }
 
     render(){
-        
+
         return(
-            <React.Fragment>
-        <div class="footer">
-            <footer> Tali Gajer, Delfina Jimenez y Guillermina Scarcella </footer>
-        </div>
-           </React.Fragment>
+            <div class="footer">
+                <footer> Tali Gajer, Delfina Jimenez y Guillermina Scarcella </footer>
+            </div>
         )
     }
 
