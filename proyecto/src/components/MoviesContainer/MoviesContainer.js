@@ -10,10 +10,11 @@ class MoviesContainer extends Component {
     render() {
         return (
             <>
+            <h1 className='titulo'> PELICULAS POPULARES </h1>
                 <div className='movies-container'>
                     { 
-                this.props.movies.length === 0 ?
-                <h1> Peliculas </h1> :
+                this.props.movies.length === 0 ? 
+                <h1 className='titulo'> Peliculas </h1>: //noc porque no funciona
                 this.props.movies.map((movie) =>
                 <Movie
                 id= {movie.id}

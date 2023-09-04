@@ -1,12 +1,10 @@
 .header{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #6d28a1;
-    background-size: cover;
-    padding: 10px;
+    height: 100px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(202, 164, 238);
+    
 }
 
 nav ul {
@@ -15,13 +13,21 @@ nav ul {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-self: center;
+    padding: 120px;
+    
 }
 
  li{
-    background-color: rgba(36, 12, 77, 0.416);
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
     display: flex;
-    margin: 0 10px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);  
+    text-decoration: none;
+    padding: 20px;
+    background-color: rgba(88, 46, 126, 0.46);
+    margin-right: 50px;
+}
+
+li:hover {
+    color: pink;
 }

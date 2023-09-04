@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import {options} from '../../configuracionAPI/constants'
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer'
+import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
 
  export default class index extends Component {
     constructor(props){
         super(props)
         this.state ={
-            movies: [] 
+            movies: [], 
+            series:[]
         }
     }
 
@@ -19,15 +21,18 @@ componentDidMount(){
         
         .catch(err => console.error(err));
     
-    /*fetch('', options)
+    fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
         .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => console.error(err));*/
+        .then(data => this.setState({
+            series: data.results
+        }))
+        .catch(err => console.error(err));
 }
 render(){
     return(
         <div>
             <MoviesContainer movies={this.state.movies}/>
+            <SeriesContainer series={this.state.series}/>
         </div>
     )
 }
