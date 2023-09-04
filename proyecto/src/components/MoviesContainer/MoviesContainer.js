@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './styles.css';
 import Movie from '../Movie/Movie'
 
 class MoviesContainer extends Component {
@@ -9,7 +10,7 @@ class MoviesContainer extends Component {
     render() {
         return (
             <>
-                <div className='movies'>
+                <div className='movies-container'>
                     { 
                 this.props.movies.length === 0 ?
                 <h1> Peliculas </h1> :

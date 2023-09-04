@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #6d28a1;
+    background-size: cover;
+    padding: 10px;
+}
+
+nav ul {
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+ li{
+    background-color: rgba(36, 12, 77, 0.416);
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    margin: 0 10px;
+}
