@@ -13,10 +13,11 @@ class Serie extends Component {
         return(
             <div className="serie">
                 <Link to={`/serie/id/${this.props.id}`}>
-                <img src={this.props.imagen} alt={this.props.nombre}/>
+                <img src={`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} alt={this.props.nombre}/>
                 </Link>
                     <h3 className="titulos"> {this.props.nombre}</h3>
                     <h5 className="descripcion"> {this.props.descripcion}</h5>
+                    <a href="/series" className="boton"> Ver Todas </a>
             </div>
             
             

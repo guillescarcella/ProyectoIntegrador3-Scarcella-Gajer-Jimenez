@@ -4,21 +4,14 @@
     font-size: 10px;
     color: rgb(255, 255, 255);
     background-color: rgb(202, 164, 238);
-    
-}
-
-nav ul {
     flex-direction: row;
     align-items: center;
-    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-self: center;
-    padding: 120px;
-    
+    align-self: center; 
 }
 
- li{
+ .link{
     display: flex;
     font-size: 16px;
     color: rgb(255, 255, 255);  
@@ -28,6 +21,6 @@ nav ul {
     margin-right: 50px;
 }
 
-li:hover {
+.link:hover {
     color: pink;
 }

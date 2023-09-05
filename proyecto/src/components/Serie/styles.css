@@ -2,8 +2,21 @@
     background-color: #af66dc9e;
     padding: 1%;
     align-items: center;
-    width: 228px;
     margin-bottom: 30px;
     color: rgb(255, 255, 255);
     text-align: center;
+}
+
+.boton{
+    display: flex;
+    font-size: 16px;
+    color: rgb(255, 255, 255);  
+    text-decoration: none;
+    padding: 20px;
+    background-color: rgba(88, 46, 126, 0.46);
+    margin-right: 50px;
+}
+
+.boton:hover {
+    color: pink;
 }

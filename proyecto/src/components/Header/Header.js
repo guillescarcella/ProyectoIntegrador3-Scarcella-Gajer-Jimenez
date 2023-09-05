@@ -13,12 +13,12 @@ class Header extends Component{
         return(
             <nav className="header">
                 <img className= "imagen"src="./logo512" alt="logo"></img>
-                <ul>
-                    <li>elemento menu</li>
-                    <li>elemento menu</li>
-                    <li>elemento menu</li>
-                    <li>elemento menu</li>  
-                </ul>
+                <a className='link' href="/home">Home</a>
+                <a className='link' href="/peliculas">Peliculas </a>
+                <a className='link' href="/series"> Series</a>
+                <a className='link' href="/favoritos">Favoritos</a>
+                      
+                
             </nav>
 
         )
