@@ -1,4 +1,4 @@
-import {Component} from "react"
+import React, {Component} from "react"
 import './styles.css';
 import {Link} from "react-router-dom";
 
@@ -6,11 +6,22 @@ class Movie extends Component {
     constructor(props){
         super(props)
         this.state={
+            valor: ''
         } // aca va lo de favoritos
+    }
+
+    evitarSubmit(event) {
+        event.preventDefault();
+    }
+
+    controlarCambios(event) {
+        this.setState({valor: event.target.value});
+        console.log(event)
     }
 
     render(){
         return(
+        <React.Fragment>
             <div className="pelicula">
                 <Link to={`/movie/id/${this.props.id}`}>
                 <img src={`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} alt={this.props.nombre}/>
@@ -20,7 +31,12 @@ class Movie extends Component {
                     <a href="/peliculas" className="boton"> Ver Todas </a>
             </div>
             
-            
+            <form onSubmit={(event)=>this.evitarSubmit(event)}>
+                <label>Buscador</label>
+                <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
+                <input type="submit" value="Submit" />
+            </form>
+        </React.Fragment>
         )
     }
 }
