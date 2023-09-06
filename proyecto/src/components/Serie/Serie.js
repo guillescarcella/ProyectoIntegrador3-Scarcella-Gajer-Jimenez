@@ -16,9 +16,9 @@ class Serie extends Component {
                 <img src={`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} alt={this.props.nombre}/>
                 </Link>
                     <h3 className="titulos"> {this.props.nombre}</h3>
-                    <a href="/" className="boton"> Ver más </a>
+                    <Link className="boton" to="/">Ver más</Link>
                     <h5 className="descripcion"> {this.props.descripcion}</h5>
-                    <a href="/detalle/id/" className="boton"> Ir a detalle </a>
+                    <Link className="boton" to="/detalle">Ir a detalle</Link>
             </div>
             
             

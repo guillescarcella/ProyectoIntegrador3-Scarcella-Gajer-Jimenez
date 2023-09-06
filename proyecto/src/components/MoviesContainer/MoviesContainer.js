@@ -26,7 +26,7 @@ class MoviesContainer extends Component {
                 )
              }
                 </div>
-                <a href="/peliculas" className="boton"> Ver Todas </a>
+                <a href="/peliculas" className="boton"> Ver Todas </a> 
             </>
         )
     }
