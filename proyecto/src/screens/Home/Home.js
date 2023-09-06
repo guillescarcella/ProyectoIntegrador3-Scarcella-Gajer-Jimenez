@@ -16,7 +16,7 @@ componentDidMount(){
     fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
         .then(response => response.json())
         .then(data => this.setState({
-            movies: data.results   
+            movies: data.results.slice(0,5)   
         }))
         
         .catch(err => console.error(err));
@@ -24,7 +24,7 @@ componentDidMount(){
     fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
         .then(response => response.json())
         .then(data => this.setState({
-            series: data.results
+            series: data.results.slice(0,5)
         }))
         .catch(err => console.error(err));
 }
