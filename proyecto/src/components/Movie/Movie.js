@@ -28,14 +28,8 @@ class Movie extends Component {
                 </Link>
                     <h3 className="titulos"> {this.props.nombre}</h3>
                     <h5 className="descripcion"> {this.props.descripcion}</h5>
-                    <a href="/peliculas" className="boton"> Ver Todas </a>
             </div>
             
-            <form onSubmit={(event)=>this.evitarSubmit(event)}>
-                <label>Buscador</label>
-                <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-                <input type="submit" value="Submit" />
-            </form>
         </React.Fragment>
         )
     }

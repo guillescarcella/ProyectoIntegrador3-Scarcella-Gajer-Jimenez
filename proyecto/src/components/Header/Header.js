@@ -18,7 +18,11 @@ class Header extends Component{
                 <a className='link' href="/peliculas">Peliculas </a>
                 <a className='link' href="/series"> Series</a>
                 <a className='link' href="/favoritos">Favoritos</a>
-                  
+                <form onSubmit={(event)=>this.evitarSubmit(event)}>
+                    <label>Buscador</label>
+                    <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
+                    <input type="submit" value="Submit" />
+                </form>     
             </nav>
         )
     }

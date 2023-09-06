@@ -15,3 +15,17 @@
     background-color: rgb(175, 148, 201);
     text-align: center;
 }
+
+.boton{
+    display: flex;
+    font-size: 16px;
+    color: rgb(255, 255, 255);  
+    text-decoration: none;
+    padding: 20px;
+    background-color: rgba(88, 46, 126, 0.46);
+    margin-right: 50px;
+}
+
+.boton:hover {
+    color: pink;
+}

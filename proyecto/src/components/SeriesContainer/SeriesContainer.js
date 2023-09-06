@@ -25,6 +25,7 @@ class SeriesContainer extends Component {
                 )
              }
                 </div>
+                <a href="/series" className="boton"> Ver Todas </a>
             </>
         )
     }
