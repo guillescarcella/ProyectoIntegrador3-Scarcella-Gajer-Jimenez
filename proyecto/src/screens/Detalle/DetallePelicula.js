@@ -45,5 +45,4 @@ render(){
             <h3 className = "detalle" >{this.state.genero}</h3>
 
         </div>
-    )
-}}
+    )}}
