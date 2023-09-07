@@ -3,7 +3,7 @@ import {options} from '../../configuracionAPI/constants'
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer'
 import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
 
- export default class DetallePelicula extends Component {
+ export default class DetalleSeries extends Component {
     constructor(props){
         super(props)
         this.state ={
@@ -20,10 +20,8 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
 componentDidMount(){
     fetch(`https://api.themoviedb.org/3/tv/${this.props.match.params.id}`, options)
     .then(response => response.json())
-    .then(data =>
-        console.log(data)
-    )
-    
+    .then(data => 
+        console.log(data))
     .catch(err => console.error(err))
 }
 render(){
