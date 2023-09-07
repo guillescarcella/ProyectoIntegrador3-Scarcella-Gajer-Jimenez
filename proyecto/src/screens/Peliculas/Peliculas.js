@@ -22,6 +22,7 @@ componentDidMount(){
 render(){
     return(
         <div>
+            <h1 className='titulo'> PELICULAS </h1>
             <MoviesContainer movies={this.state.movies}/>
         </div>
     )

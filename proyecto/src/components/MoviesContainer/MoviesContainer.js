@@ -10,7 +10,7 @@ class MoviesContainer extends Component {
     render() {
         return (
             <>
-            <h1 className='titulo'> PELICULAS POPULARES </h1>
+            
                 <div className='movies-container'>
                     { 
                 this.props.movies.length === 0 ? 
@@ -26,7 +26,7 @@ class MoviesContainer extends Component {
                 )
              }
                 </div>
-                <a href="/peliculas" className="boton"> Ver Todas </a> 
+                
             </>
         )
     }

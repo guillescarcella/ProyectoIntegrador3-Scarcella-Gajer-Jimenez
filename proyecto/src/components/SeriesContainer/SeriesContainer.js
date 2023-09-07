@@ -10,7 +10,6 @@ class SeriesContainer extends Component {
     render() {
         return (
             <>
-            <h1 className='titulo'> SERIES POPULARES </h1>
                 <div className='series-container'>
                     { 
                 this.props.series.length === 0 ? 
@@ -25,7 +24,7 @@ class SeriesContainer extends Component {
                 )
              }
                 </div>
-                <a href="/series" className="boton"> Ver Todas </a>
+                
             </>
         )
     }

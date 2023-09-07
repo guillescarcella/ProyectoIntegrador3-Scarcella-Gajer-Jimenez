@@ -31,8 +31,12 @@ componentDidMount(){
 render(){
     return(
         <div>
+            <h1 className='titulo'> PELICULAS POPULARES </h1>
             <MoviesContainer movies={this.state.movies}/>
+            <a href="/peliculas" className="boton"> Ver Todas </a> 
+            <h1 className='titulo'> SERIES POPULARES </h1>
             <SeriesContainer series={this.state.series}/>
+            <a href="/series" className="boton"> Ver Todas </a>
         </div>
     )
 }
