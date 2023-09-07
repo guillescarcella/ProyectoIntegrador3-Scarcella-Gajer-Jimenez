@@ -23,13 +23,11 @@ class Movie extends Component {
         return(
         <React.Fragment>
             <div className="pelicula">
-                <Link to={`/movie/id/${this.props.id}`}>
                 <img src={`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} alt={this.props.nombre}/>
-                </Link>
                     <h3 className="titulos"> {this.props.nombre}</h3>
                     <Link className="boton" to="/">Ver más</Link>
                     <h5 className="descripcion"> {this.props.descripcion}</h5>
-                    <Link className="boton" to="/detalle">Ir a detalle</Link>
+                    <Link className="boton"to={`/detallePelicula/id/${this.props.id}`}>Ir a detalle</Link>
                     
             </div>
             
