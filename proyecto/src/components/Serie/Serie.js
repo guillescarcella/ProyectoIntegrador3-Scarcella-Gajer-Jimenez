@@ -6,6 +6,7 @@ class Serie extends Component {
     constructor(props){
         super(props)
         this.state={
+            valor: " "
         } // aca va lo de favoritos
     }
 
@@ -18,7 +19,7 @@ class Serie extends Component {
                     <h3 className="titulos"> {this.props.nombre}</h3>
                     <Link className="boton" to="/">Ver más</Link>
                     <h5 className="descripcion"> {this.props.descripcion}</h5>
-                    <Link className="boton" to="/detalle">Ir a detalle</Link>
+                    <Link className="boton" to={`/detalleSeries/id/${this.props.id}`}>Ir a detalle</Link>
             </div>
             
             

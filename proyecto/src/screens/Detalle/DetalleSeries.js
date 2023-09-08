@@ -7,12 +7,7 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
     constructor(props){
         super(props)
         this.state ={
-            foto: "", 
-            nombre: "",
-            calificacion: "",
-            fecha: "",
-            sinopsis: "",
-            genero: "",
+            valor: [],
             favoritos:false
         }
     }
@@ -20,14 +15,20 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
 componentDidMount(){
     fetch(`https://api.themoviedb.org/3/tv/${this.props.match.params.id}`, options)
     .then(response => response.json())
-    .then(data => 
-        console.log(data))
+    .then(data => this.setState({
+        imagen: data.poster_path,
+        nombre: data.original_name,
+        calificacion: data.vote_average,
+        fecha: data.last_air_date,
+        sinopsis: data.overview,
+        genero: data.genres[0].name
+}))
     .catch(err => console.error(err))
 }
 render(){
     return(
-        <div>
-
+        <div> 
+            <img src={`https://image.tmdb.org/t/p/w500/${this.state.imagen}`} alt={this.state.nombre}/>
             <h1>{this.state.nombre}</h1>
             <h3 className = "detalle" >{this.state.calificacion}</h3>
             <h3 className = "detalle" >{this.state.fecha}</h3>
@@ -38,3 +39,4 @@ render(){
         </div>
     )
 }}
+
