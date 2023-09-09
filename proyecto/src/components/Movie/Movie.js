@@ -6,8 +6,10 @@ class Movie extends Component {
     constructor(props){
         super(props)
         this.state={
-            valor: ''
-        } // aca va lo de favoritos
+            valor: '',
+            mostrar: false,
+            mensaje: 'Ver descripcion'
+        } 
     }
 
     evitarSubmit(event) {
@@ -17,7 +19,12 @@ class Movie extends Component {
     controlarCambios(event) {
         this.setState({valor: event.target.value});
         console.log(event)
-    }
+    } // para que es esto guille?
+
+    descripcion(){
+        if (this.state.mostrar == true ){this.setState({mostrar: false, mensaje: "Ver descripcion"})}
+        else{this.setState({mostrar: true, mensaje: "Ocultar descripcion"})}
+    }   
 
     render(){
         return(
@@ -25,8 +32,8 @@ class Movie extends Component {
             <div className="pelicula">
                 <img src={`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} alt={this.props.nombre}/>
                     <h3 className="titulos"> {this.props.nombre}</h3>
-                    <Link className="boton" to="/">Ver más</Link>
-                    <h5 className="descripcion"> {this.props.descripcion}</h5>
+                    <p className="boton" onClick={() => this.descripcion ()}>{this.state.mensaje}</p>
+                    {this.state.mostrar ? <h5 className="descripcion">{this.props.descripcion}</h5> : ""}
                     <Link className="boton"to={`/detallePelicula/id/${this.props.id}`}>Ir a detalle</Link>
                     
             </div>
