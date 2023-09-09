@@ -8,7 +8,9 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
         super(props)
         this.state ={
             movies: [], 
-            series:[]
+            series:[],
+            resultados: [],
+            valor: ""
         }
     }
 
@@ -28,15 +30,47 @@ componentDidMount(){
         }))
         .catch(err => console.error(err));
 }
+
+controlarCambios (e){
+    this.setState({valor: e.target.value},() =>{
+        this.mostrarBusqueda()
+    })
+}
+
+mostrarBusqueda (){
+    if (this.state.valor !== ''){
+        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.valor}`, options)
+        .then (response => response.json())
+        .then (data => this.setState({
+            resultados: data.results.slice(0,5)
+        }, () => console.log(this.state)))
+        .catch(err => console.error(err));
+    }
+}
 render(){
     return(
         <div>
+            <form onSubmit={(event)=>this.evitarSubmit(event)}>
+                    <label>Buscador</label>
+                    <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
+                    <input type="submit" value="Submit" />
+            </form>
+            {this.state.valor === '' ? 
+            <>
             <h1 className='titulo'> PELICULAS POPULARES </h1>
             <MoviesContainer movies={this.state.movies}/>
             <a href="/peliculas" className="boton"> Ver Todas </a> 
             <h1 className='titulo'> SERIES POPULARES </h1>
             <SeriesContainer series={this.state.series}/>
             <a href="/series" className="boton"> Ver Todas </a>
+            </>
+            :
+            <>
+            <h1>Resultado de busqueda de peliculas</h1>
+            {<MoviesContainer movies={this.state.resultados}/>}
+
+            </>
+        }
         </div>
     )
 }
