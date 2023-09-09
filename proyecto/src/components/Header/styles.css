@@ -2,8 +2,7 @@
     display: flex;
     height: 100px;
     font-size: 10px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(202, 164, 238);
+    background-color: #d4ff26;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -18,10 +17,8 @@
  .link{
     display: flex;
     font-size: 16px;
-    color: rgb(255, 255, 255);  
+    color: #1e1e1e;
     text-decoration: none;
-    padding: 20px;
-    background-color: rgba(88, 46, 126, 0.46);
     margin-right: 50px;
 }
 
