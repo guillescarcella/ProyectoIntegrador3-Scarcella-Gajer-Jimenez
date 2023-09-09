@@ -7,6 +7,7 @@ import Series from './screens/Series/Series'
 import Peliculas from './screens/Peliculas/Peliculas'
 import DetallePelicula from './screens/Detalle/DetallePelicula'
 import DetalleSeries from './screens/Detalle/DetalleSeries'
+import Favoritos from './screens/Favoritos/Favoritos';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" exact={true}component={Home} /> 
         <Route path="/detallePelicula/id/:id"  exact={true} component={DetallePelicula} />
         <Route path="/detalleSeries/id/:id" exact={true} component={DetalleSeries} />
-        <Route path="/favoritos" exact={true} component={Home} />
+        <Route path="/favoritos" exact={true} component={Favoritos} />
         <Route path="/home" exact={true} component={Home} />
         <Route path="/buscador" exact={true} component={Home} />
         <Route path="/series" exact={true} component={Series} />
