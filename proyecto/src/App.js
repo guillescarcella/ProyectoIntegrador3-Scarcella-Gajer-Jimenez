@@ -8,6 +8,7 @@ import Peliculas from './screens/Peliculas/Peliculas'
 import DetallePelicula from './screens/Detalle/DetallePelicula'
 import DetalleSeries from './screens/Detalle/DetalleSeries'
 import Favoritos from './screens/Favoritos/Favoritos';
+import Loader from "./components/Loader/Loader";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/peliculas" exact={true} component={Peliculas} />
         <Route component={NotFound} />
       </Switch>
+      
     <Footer/>
     </>
 

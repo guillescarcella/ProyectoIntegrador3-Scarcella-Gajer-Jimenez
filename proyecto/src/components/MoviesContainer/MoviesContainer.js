@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './styles.css';
 import Movie from '../Movie/Movie'
+import Loader from '../Loader/Loader';
 
 class MoviesContainer extends Component {
     constructor(props) {
@@ -8,13 +9,16 @@ class MoviesContainer extends Component {
     }
 
     render() {
+        console.log(this.props.movies)
         return (
             <>
             
                 <div className='movies-container'>
                     { 
+                this.props.movies ? (
                 this.props.movies.length === 0 ? 
-                <h1 > </h1>: //noc porque no funciona
+                 <h2>No hay favoritos</h2>
+                : //noc porque no funciona
                 this.props.movies.map((movie) =>
                 <Movie
                 id= {movie.id}
@@ -22,7 +26,8 @@ class MoviesContainer extends Component {
                 imagen={movie.poster_path}
                 descripcion={movie.overview}
                 />
-                )
+                )):
+                <Loader/>
              }
                 </div>
                 

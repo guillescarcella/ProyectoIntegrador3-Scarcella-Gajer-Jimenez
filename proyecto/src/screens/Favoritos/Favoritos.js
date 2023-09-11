@@ -9,7 +9,7 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
         this.state ={
             valor: [],
             favoritos:false,
-            pelisFavoritas: [],
+            pelisFavoritas: false,
             seriesFavoritas: [],
            
             
@@ -20,7 +20,10 @@ componentDidMount(){
 
     let listaPelisFavoritas = [];
     listaPelisFavoritas = JSON.parse(localStorage.getItem("peliculas_favoritas"));
-    if(listaPelisFavoritas === null){
+    if(listaPelisFavoritas === null || listaPelisFavoritas === []){
+        this.setState({
+            pelisFavoritas: []
+        })
        console.log("el array de peliculas favoritas esta vacio");
       }
       else {
@@ -38,7 +41,11 @@ componentDidMount(){
 
     let listaSeriesFavoritas = [];
     listaSeriesFavoritas = JSON.parse(localStorage.getItem("series_favoritas"));
-      if(listaSeriesFavoritas === null){
+
+      if(listaSeriesFavoritas === null || listaSeriesFavoritas === []){
+        this.setState({
+            seriesFavoritas: []
+        })
         console.log("el array de series favoritas esta vacio");
       }
       else {

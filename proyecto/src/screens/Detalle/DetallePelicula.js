@@ -27,7 +27,7 @@ componentDidMount(){
         imagen: data.poster_path,
         nombre: data.title,
         calificacion: data.vote_average,
-        fecha: data.realease_date,
+        fecha: data.release_date,
         duracion: data.runtime,
         sinopsis: data.overview,
         genero: data.genres[0].name

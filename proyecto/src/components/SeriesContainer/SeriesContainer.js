@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './styles.css';
 import Serie from '../Serie/Serie'
+import Loader from '../Loader/Loader';
 
 class SeriesContainer extends Component {
     constructor(props) {
@@ -12,8 +13,11 @@ class SeriesContainer extends Component {
             <>
                 <div className='series-container'>
                     { 
-                this.props.series.length === 0 ? 
-                <h1>  </h1>: //noc porque no funciona
+                 this.props.series ? (
+                    this.props.series.length === 0 ? 
+                     <h2>No hay favoritos</h2>
+                    :
+
                 this.props.series.map((serie) =>
                 <Serie
                 id= {serie.id}
@@ -21,8 +25,9 @@ class SeriesContainer extends Component {
                 imagen={serie.poster_path}
                 descripcion={serie.overview}
                 />
-                )
-             }
+                )):
+                <Loader/>
+                 }
                 </div>
                 
             </>
