@@ -13,7 +13,7 @@ class SeriesContainer extends Component {
                 <div className='series-container'>
                     { 
                 this.props.series.length === 0 ? 
-                <h1 className='titulo'> Series </h1>: //noc porque no funciona
+                <h1>  </h1>: //noc porque no funciona
                 this.props.series.map((serie) =>
                 <Serie
                 id= {serie.id}

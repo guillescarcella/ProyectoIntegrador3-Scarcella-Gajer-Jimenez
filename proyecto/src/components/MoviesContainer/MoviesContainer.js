@@ -14,8 +14,7 @@ class MoviesContainer extends Component {
                 <div className='movies-container'>
                     { 
                 this.props.movies.length === 0 ? 
-                <h1 className='titulo'> Peliculas </h1>: //noc porque no funciona
-                //let soloCinco = this.props.movies.slice(0,5)
+                <h1 > </h1>: //noc porque no funciona
                 this.props.movies.map((movie) =>
                 <Movie
                 id= {movie.id}
