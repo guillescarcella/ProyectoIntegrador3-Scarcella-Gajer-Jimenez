@@ -39,10 +39,10 @@ controlarCambios (e){
 
 mostrarBusqueda (){
     if (this.state.valor !== ''){
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.state.valor}`, options)
+        fetch(`https://api.themoviedb.org/3/search/multi?query=${this.state.valor}`, options)
         .then (response => response.json())
         .then (data => this.setState({
-            resultados: data.results.slice(0,5)
+            resultados: data.results
         }, () => console.log(this.state)))
         .catch(err => console.error(err));
     }
@@ -66,7 +66,7 @@ render(){
             </>
             :
             <>
-            <h1>Resultado de busqueda de peliculas</h1>
+            <h1>Resultado de busqueda</h1>
             {<MoviesContainer movies={this.state.resultados}/>}
 
             </>
