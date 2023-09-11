@@ -16,11 +16,13 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
     }
 
 componentDidMount(){
-    let listaPelisFavoritas = [];
-    let listaSeriesFavoritas = [];
-    listaPelisFavoritas = JSON.parse(localStorage.getItem("peliculas_favoritas"));
-    listaSeriesFavoritas = JSON.parse(localStorage.getItem("series_favoritas"));
 
+    let listaPelisFavoritas = [];
+    listaPelisFavoritas = JSON.parse(localStorage.getItem("peliculas_favoritas"));
+    if(listaPelisFavoritas === null){
+        console.log("el array de peliculas favoritas esta vacio");
+      }
+      else {
     listaPelisFavoritas.map((id)=>{
     fetch(`https://api.themoviedb.org/3/movie/${id}`, options)
     .then(response => response.json())
@@ -31,22 +33,26 @@ componentDidMount(){
     }
     )
     .catch(err => console.error(err))
-    })
+    })}
 
-
-    listaSeriesFavoritas.map((id)=>{
-        fetch(`https://api.themoviedb.org/3/tv/${id}`, options)
-        .then(response => response.json())
-        .then(data => {
-            let listaDatos = this.state.seriesFavoritas;
-            listaDatos.push(data);
-            this.setState({seriesFavoritas: listaDatos}, console.log(this.state))
+    let listaSeriesFavoritas = [];
+    listaSeriesFavoritas = JSON.parse(localStorage.getItem("series_favoritas"));
+      if(listaSeriesFavoritas === null){
+        console.log("el array de series favoritas esta vacio");
+      }
+      else {
+        listaSeriesFavoritas.map((id)=>{
+            fetch(`https://api.themoviedb.org/3/tv/${id}`, options)
+            .then(response => response.json())
+            .then(data => {
+                let listaDatos = this.state.seriesFavoritas;
+                listaDatos.push(data);
+                this.setState({seriesFavoritas: listaDatos}, console.log(this.state))
+            }
+            )
+            .catch(err => console.error(err))
+            })
         }
-        )
-        .catch(err => console.error(err))
-        })
-
-    
 }
 render(){
     return(
