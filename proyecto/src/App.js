@@ -23,6 +23,7 @@ function App() {
         <Route path="/buscador" exact={true} component={Home} />
         <Route path="/series" exact={true} component={Series} />
         <Route path="/peliculas" exact={true} component={Peliculas} />
+        <Route component={NotFound} />
       </Switch>
     <Footer/>
     </>
