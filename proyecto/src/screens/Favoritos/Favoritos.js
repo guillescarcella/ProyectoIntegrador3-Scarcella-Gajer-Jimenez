@@ -10,7 +10,8 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
             valor: [],
             favoritos:false,
             pelisFavoritas: [],
-            seriesFavoritas: []
+            seriesFavoritas: [],
+           
             
         }
     }
@@ -20,7 +21,7 @@ componentDidMount(){
     let listaPelisFavoritas = [];
     listaPelisFavoritas = JSON.parse(localStorage.getItem("peliculas_favoritas"));
     if(listaPelisFavoritas === null){
-        console.log("el array de peliculas favoritas esta vacio");
+       console.log("el array de peliculas favoritas esta vacio");
       }
       else {
     listaPelisFavoritas.map((id)=>{
@@ -57,9 +58,9 @@ componentDidMount(){
 render(){
     return(
         <div>
-            <h1 className='titulo'> PELICULAS POPULARES FAVORITAS </h1>
+            <h1 className='barras'> PELICULAS POPULARES FAVORITAS </h1>
             <MoviesContainer movies={this.state.pelisFavoritas}/>
-            <h1 className='titulo'> SERIES POPULARES FAVORITAS </h1>
+            <h1 className='barras'> SERIES POPULARES FAVORITAS </h1>
             <SeriesContainer series={this.state.seriesFavoritas}/>
             
         </div>

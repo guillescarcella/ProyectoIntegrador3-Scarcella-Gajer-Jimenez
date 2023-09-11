@@ -51,22 +51,21 @@ render(){
     return(
         <div>
             <form onSubmit={(event)=>this.evitarSubmit(event)}>
-                    <label>Buscador</label>
-                    <input type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
-                    <input type="submit" value="Submit" />
+                    <input className='buscador' type="text" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
+                    <input className='botonBuscador' type="submit" value="BUSCAR" />
             </form>
             {this.state.valor === '' ? 
             <>
-            <h1 className='titulo'> PELICULAS POPULARES </h1>
+            <h1 className='barras'> PELICULAS POPULARES </h1>
             <MoviesContainer movies={this.state.movies}/>
-            <a href="/peliculas" className="boton"> Ver Todas </a> 
-            <h1 className='titulo'> SERIES POPULARES </h1>
+            <a href="/peliculas" className="botonVerTodas"> Ver Todas </a> 
+            <h1 className='barras'> SERIES POPULARES </h1>
             <SeriesContainer series={this.state.series}/>
-            <a href="/series" className="boton"> Ver Todas </a>
+            <a href="/series" className="botonVerTodas"> Ver Todas </a>
             </>
             :
             <>
-            <h1>Resultado de busqueda</h1>
+            <h1 className="barras">RESULTADO DE BUSQUEDA</h1>
             {<MoviesContainer movies={this.state.resultados}/>}
 
             </>

@@ -22,7 +22,7 @@ componentDidMount(){
 render(){
     return(
         <div>
-            <h1 className='titulo'> PELICULAS </h1>
+            <h1 className='barras'> PELICULAS </h1>
             <MoviesContainer movies={this.state.movies}/>
         </div>
     )

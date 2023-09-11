@@ -8,27 +8,33 @@
     
 }
 
-.titulo{
+.barras{ 
     font-size: 20px;
     color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgb(100, 58, 84) 0%, rgb(18, 80, 122) 100%);
+    font-family: Rubik;
     font-weight: bolder;
     padding: 10px;
-    background-color: rgb(175, 148, 201);
-    text-align: center;
 }
 
-.boton{
+.botonVerTodas{
     display: flex;
     font-size: 16px;
     color: rgb(255, 255, 255);  
     text-decoration: none;
-    padding: 20px;
-    background-color: rgba(88, 46, 126, 0.46);
-    margin-right: 50px;
+    background-color: #ff00a8;
+    font-family: Rubik;
+    border-radius: 30px;
+    padding: 7px;
+    width: 40%;
+    align-items: center;
+    text-align: center;
+   
+    
 }
 
 .boton:hover {
-    color: pink;
+    color: #ff00a8;
 }
 
 

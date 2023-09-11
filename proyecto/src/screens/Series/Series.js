@@ -21,7 +21,7 @@ componentDidMount(){
 render(){
     return(
         <div>
-            <h1 className='titulo'> SERIES </h1>
+            <h1 className='barras'> SERIES </h1>
             <SeriesContainer series={this.state.series}/>
         </div>
     )

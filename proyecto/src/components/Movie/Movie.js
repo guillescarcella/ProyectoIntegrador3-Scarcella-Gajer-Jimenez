@@ -32,9 +32,9 @@ class Movie extends Component {
             <div className="pelicula">
                 <img src={`https://image.tmdb.org/t/p/w500/${this.props.imagen}`} alt={this.props.nombre}/>
                     <h3 className="titulos"> {this.props.nombre}</h3>
-                    <p className="boton" onClick={() => this.descripcion ()}>{this.state.mensaje}</p>
+                    <p className="botonPelis" onClick={() => this.descripcion ()}>{this.state.mensaje}</p>
                     {this.state.mostrar ? <h5 className="descripcion">{this.props.descripcion}</h5> : ""}
-                    <Link className="boton"to={`/detallePelicula/id/${this.props.id}`}>Ir a detalle</Link>
+                    <Link className="botonPelis"to={`/detallePelicula/id/${this.props.id}`}>Ir a detalle</Link>
                     
             </div>
             

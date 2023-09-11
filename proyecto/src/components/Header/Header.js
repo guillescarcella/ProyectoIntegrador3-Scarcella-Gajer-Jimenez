@@ -14,11 +14,11 @@ class Header extends Component{
         return(
             
             <nav className="header">
-            <img className= "imagen"src="./logo512" alt="logo"></img>
-                 <Link className="link" to="/" exact="estrenos">Home</Link> 
-                 <Link className="link" to="/favoritos">Favoritos</Link> 
-                 <Link className="link" to="/series">Series</Link> 
-                 <Link className="link" to="/peliculas">Peliculas</Link> 
+            <img className= "imagen" src="./img/logopop.png" alt="logo"></img>
+                 <Link className="link" to="/" exact="estrenos">HOME</Link> 
+                 <Link className="link" to="/favoritos">FAVORITOS</Link> 
+                 <Link className="link" to="/series">SERIES</Link> 
+                 <Link className="link" to="/peliculas">PELICULAS</Link> 
             </nav>
         )
     }
