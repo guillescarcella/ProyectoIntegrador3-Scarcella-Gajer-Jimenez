@@ -21,33 +21,53 @@ componentDidMount(){
         duracion: data.runtime,
         sinopsis: data.overview,
         genero: data.genres[0].name
+    } , () => {
+        let storageFav = localStorage.getItem('favoritos')
+        let arrParseado = JSON.parse(storageFav)
+    
+        if(arrParseado !== null){
+            let estaMiPelicula = arrParseado.includes(this.props.id)
+            if(estaMiPelicula){
+                this.setState({
+                    esFavorito: true
+                })
+            }
+        }
+
     }))
     .catch(err => console.error(err))
 
-    let storageFav = localStorage.getItem('pelisFavoritos')
-    let arrParseado = JSON.parse(storageFav)
-
-    if(arrParseado !== null){
-        let estaMiPelicula = arrParseado.includes(this.props.id)
-        if(estaMiPelicula){
-            this.setState({
-                esFavorito: true
-            })
-        }
-    }
+   
 }
 
-agregarAFavoritos(idMovie){
-    let storageFav = localStorage.getItem('pelisFavoritos')
+agregarAFavoritos(idPelicula){
+    let storageFav = localStorage.getItem('favoritos')
     if(storageFav === null){
-        let arrIds = [idMovie]
+        let arrIds = [idPelicula]
         let arrStringnificado = JSON.stringify(arrIds)
-        localStorage.setItem('pelisFavoritos', arrStringnificado) 
+        localStorage.setItem('favoritos', arrStringnificado) 
     } else{
         let arrParseado= JSON.parse(storageFav)
-        arrParseado.push(idMovie)
+        arrParseado.push(idPelicula)
+        let arrStringificado = JSON.stringify(arrParseado)
+          localStorage.setItem('pelisFavoritos', arrStringificado)
     }
+    this.setState({
+        esFavorito: true
+      })
 }
+
+sacarDeFavoritos(idPelicula){
+    let storageFav = localStorage.getItem('favoritos')
+    let arrParseado = JSON.parse(storageFav)
+    let favsFiltrados = arrParseado.filter((id) => id !== idPelicula)
+    let arrStringificado = JSON.stringify(favsFiltrados)
+    localStorage.setItem('favoritos', arrStringificado)
+    this.setState({
+      esFavorito: false
+    })
+    
+  }
 
 render(){
     return(
@@ -60,7 +80,16 @@ render(){
             <h3 className = "detalle" >{this.state.sinopsis}</h3>
             <h3 className = "detalle" >{this.state.genero}</h3>
             <div>
-                <h3 className = "detalle" onClick={() => this.favoritos()}>{this.state.textoFavoritos}</h3>
+            {
+              this.state.esFavorito ?
+              <button onClick={()=> this.sacarDeFavoritos(this.props.id)}>
+                Sacar de favoritos
+              </button>  
+              :
+              <button onClick={()=> this.agregarAFavoritos(this.props.id)}>
+                Agregar a favoritos
+              </button>
+            }
             </div>
         </div>
     )}}
