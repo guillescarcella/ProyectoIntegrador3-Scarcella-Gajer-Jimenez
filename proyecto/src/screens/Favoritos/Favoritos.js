@@ -9,7 +9,7 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
         this.state ={
             valor: [],
             favoritos:false,
-            pelisFavoritas: false,
+            pelisFavoritas: [],
             seriesFavoritas: [],
            
             
@@ -66,9 +66,18 @@ render(){
     return(
         <div>
             <h1 className='barras'> PELICULAS POPULARES FAVORITAS </h1>
-            <MoviesContainer movies={this.state.pelisFavoritas}/>
+            {
+            this.state.pelisFavoritas.length > 0
+                ? <MoviesContainer movies={this.state.pelisFavoritas}/>: 
+                <h2 className='favoritos'>No hay Peliculas Favoritas</h2>
+            }
             <h1 className='barras'> SERIES POPULARES FAVORITAS </h1>
-            <SeriesContainer series={this.state.seriesFavoritas}/>
+            {
+            this.state.seriesFavoritas.length > 0
+                ? <SeriesContainer series={this.state.seriesFavoritas}/>:
+                <h2 className='favoritos'>No hay Series Favoritas</h2>
+            }
+            
             
         </div>
     )}}
