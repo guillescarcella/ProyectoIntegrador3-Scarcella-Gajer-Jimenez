@@ -1,26 +1,16 @@
 import React, {Component} from 'react'
 import {options} from '../../configuracionAPI/constants'
-import MoviesContainer from '../../components/MoviesContainer/MoviesContainer'
-import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
 
  export default class DetallePelicula extends Component {
     constructor(props){
         super(props)
         this.state ={
             valor: [],
-            favoritos:false
+            esFavorito: false
         }
     }
 
 componentDidMount(){
-    let listaPelisFavoritas = [];
-    listaPelisFavoritas = JSON.parse(localStorage.getItem('peliculas_favoritas'));
-    console.log(listaPelisFavoritas);
-    if(listaPelisFavoritas && listaPelisFavoritas.includes(parseInt(this.props.match.params.id))){
-        this.setState({textoFavoritos: "Eliminar de favoritos"})
-    } else {
-        this.setState({textoFavoritos: "Agregar a favoritos"})
-    }
     fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}`, options)
     .then(response => response.json())
     .then(data => this.setState({ 
@@ -32,34 +22,32 @@ componentDidMount(){
         sinopsis: data.overview,
         genero: data.genres[0].name
     }))
-    
     .catch(err => console.error(err))
+
+    let storageFav = localStorage.getItem('pelisFavoritos')
+    let arrParseado = JSON.parse(storageFav)
+
+    if(arrParseado !== null){
+        let estaMiPelicula = arrParseado.includes(this.props.id)
+        if(estaMiPelicula){
+            this.setState({
+                esFavorito: true
+            })
+        }
+    }
 }
 
-favoritos(){
-    console.log('clickeo');
-    let listaPelisFavoritas = [];
-    let listaLocalStorage = []
-    if(localStorage.getItem('peliculas_favoritas') !== null){
-        listaLocalStorage = JSON.parse(localStorage.getItem('peliculas_favoritas'))
+agregarAFavoritos(idMovie){
+    let storageFav = localStorage.getItem('pelisFavoritos')
+    if(storageFav === null){
+        let arrIds = [idMovie]
+        let arrStringnificado = JSON.stringify(arrIds)
+        localStorage.setItem('pelisFavoritos', arrStringnificado) 
+    } else{
+        let arrParseado= JSON.parse(storageFav)
+        arrParseado.push(idMovie)
     }
-    let listaFinal = [];
-    if(listaLocalStorage !== null){
-        listaPelisFavoritas = listaLocalStorage;
-    }
-    if(listaPelisFavoritas.includes(parseInt(this.props.match.params.id))){
-        console.log('sacar de favoritos');
-        this.setState({textoFavoritos: "Agregar a favoritos"});
-        listaFinal = listaPelisFavoritas.filter((queda) => queda !== parseInt(this.props.match.params.id));
-    } else {
-        console.log('agregar a favoritos');
-        this.setState({textoFavoritos: "Eliminar de favoritos"});
-        listaFinal = listaPelisFavoritas;
-        listaFinal.push(parseInt(this.props.match.params.id));
-    }
-    localStorage.setItem('peliculas_favoritas', JSON.stringify(listaFinal));
 }
-
 
 render(){
     return(
