@@ -7,7 +7,7 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
     constructor(props){
         super(props)
         this.state ={
-            valor: [],
+            detalleSerie: null,
             favoritos:false
         }
     }
@@ -16,29 +16,32 @@ componentDidMount(){
     fetch(`https://api.themoviedb.org/3/tv/${this.props.match.params.id}`, options)
     .then(response => response.json())
     .then(data => this.setState({
-        imagen: data.poster_path,
-        nombre: data.original_name,
-        calificacion: data.vote_average,
-        fecha: data.last_air_date,
-        sinopsis: data.overview,
-        genero: data.genres[0].name
+        detalleSerie: data
+
 }))
     .catch(err => console.error(err))
 }
 
 
 render(){
+            console.log(this.state.detalleSerie)
     return(
+
+        <>
+        { 
+        this.state.detalleSerie !== null ?
         <div> 
-            <img src={`https://image.tmdb.org/t/p/w500/${this.state.imagen}`} alt={this.state.nombre}/>
-            <h1>{this.state.nombre}</h1>
-            <h3 className = "detalle" >{this.state.calificacion}</h3>
-            <h3 className = "detalle" >{this.state.fecha}</h3>
-            <h3 className = "detalle" >{this.state.duracion}</h3>
-            <h3 className = "detalle" >{this.state.sinopsis}</h3>
-            <h3 className = "detalle" >{this.state.genero}</h3>
-            
-        </div>
+            <img src={`https://image.tmdb.org/t/p/w500/${this.state.detalleSerie.poster_path}`} alt={this.state.detalleSerie.original_name}/>
+            <h1>{this.state.detalleSerie.original_name}</h1>
+            <h3 className = "detalle" >{this.state.detalleSerie.vote_average}</h3>
+            <h3 className = "detalle" >{this.state.detalleSerie.last_air_date}</h3>
+            <h3 className = "detalle" >{this.state.detalleSerie.overview}</h3>
+            <h3 className = "detalle" >{this.state.detalleSerie.genres[0].name}</h3>
+        </div>:
+            <h2>hola</h2>
+        }   
+        </>
     )
+    
 }}
 

@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import {options} from '../../configuracionAPI/constants'
 
+
+
  export default class DetallePelicula extends Component {
     constructor(props){
         super(props)
         this.state ={
-            valor: [],
+            detalleMovie: null,
             esFavorito: false
         }
     }
@@ -14,14 +16,9 @@ componentDidMount(){
     fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}`, options)
     .then(response => response.json())
     .then(data => this.setState({ 
-        imagen: data.poster_path,
-        nombre: data.title,
-        calificacion: data.vote_average,
-        fecha: data.release_date,
-        duracion: data.runtime,
-        sinopsis: data.overview,
-        genero: data.genres[0].name
+        detalleMovie: data
     } , () => {
+
         let storageFav = localStorage.getItem('favoritos')
         let arrParseado = JSON.parse(storageFav)
     
@@ -71,25 +68,33 @@ sacarDeFavoritos(idPelicula){
 
 render(){
     return(
-        <div>
-            <img src={`https://image.tmdb.org/t/p/w500/${this.state.imagen}`} alt={this.state.nombre}/>           
-            <h1>{this.state.nombre}</h1>
-            <h3 className = "detalle" >{this.state.calificacion}</h3>
-            <h3 className = "detalle" >{this.state.fecha}</h3>
-            <h3 className = "detalle" >{this.state.duracion}</h3>
-            <h3 className = "detalle" >{this.state.sinopsis}</h3>
-            <h3 className = "detalle" >{this.state.genero}</h3>
+    <>
+        {
+            this.state.detalleMovie !== null ?
             <div>
-            {
-              this.state.esFavorito ?
-              <button onClick={()=> this.sacarDeFavoritos(this.props.id)}>
-                Sacar de favoritos
-              </button>  
-              :
-              <button onClick={()=> this.agregarAFavoritos(this.props.id)}>
-                Agregar a favoritos
-              </button>
-            }
+                <img src={`https://image.tmdb.org/t/p/w500/${this.state.detalleMovie.poster_path}`} alt={this.state.detalleMovie.title}/>           
+                <h1>{this.state.detalleMovie.title}</h1>
+                <h3 className = "detalle" >{this.state.detalleMovie.vote_average}</h3>
+                <h3 className = "detalle" >{this.state.detalleMovie.release_date}</h3>
+                <h3 className = "detalle" >{this.state.detalleMovie.runtime}</h3>
+                <h3 className = "detalle" >{this.state.detalleMovie.overview}</h3>
+                <h3 className = "detalle" >{this.state.detalleMovie.genres[0].name}</h3>
+                <div>
+                    {
+                        this.state.esFavorito ?
+                        <button onClick={()=> this.sacarDeFavoritos(this.props.id)}>
+                        Sacar de favoritos
+                        </button>  
+                        :
+                        <button onClick={()=> this.agregarAFavoritos(this.props.id)}>
+                        Agregar a favoritos
+                        </button>
+                    }
+                </div>
+        
             </div>
-        </div>
-    )}}
+            : 
+            <h2>hola</h2>
+        }
+    </>
+)}}
