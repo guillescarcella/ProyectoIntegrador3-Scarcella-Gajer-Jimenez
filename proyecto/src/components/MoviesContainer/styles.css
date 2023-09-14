@@ -41,4 +41,27 @@
     color: aliceblue;
 }
 
+.detalle{
+    background-color: #313030;
+    padding: 1%;
+    align-items: center;
+    margin-bottom: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Rubik;
+    border-radius: 2%;
+}
+
+.titulo1{
+    font-family: Rubik;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+}
+
+.texto1{
+    font-family: Rubik;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
 

@@ -71,14 +71,14 @@ render(){
     <>
         {
             this.state.detalleMovie !== null ?
-            <div>
+            <div className='detalle'>
                 <img src={`https://image.tmdb.org/t/p/w500/${this.state.detalleMovie.poster_path}`} alt={this.state.detalleMovie.title}/>           
-                <h1>{this.state.detalleMovie.title}</h1>
-                <h3 className = "detalle" >{this.state.detalleMovie.vote_average}</h3>
-                <h3 className = "detalle" >{this.state.detalleMovie.release_date}</h3>
-                <h3 className = "detalle" >{this.state.detalleMovie.runtime}</h3>
-                <h3 className = "detalle" >{this.state.detalleMovie.overview}</h3>
-                <h3 className = "detalle" >{this.state.detalleMovie.genres[0].name}</h3>
+                <h1 className='titulo1'>{this.state.detalleMovie.title}</h1>
+                <h3 className = "texto1" > CALIFICACION: {this.state.detalleMovie.vote_average}</h3>
+                <h3 className = "texto1" > FECHA DE ESTRENO: {this.state.detalleMovie.release_date}</h3>
+                <h3 className = "texto1" > DURACION: {this.state.detalleMovie.runtime}</h3>
+                <h3 className = "texto1" > SINOPSIS: {this.state.detalleMovie.overview}</h3>
+                <h3 className = "texto1" > GENERO: {this.state.detalleMovie.genres[0].name}</h3>
                 <div>
                     {
                         this.state.esFavorito ?
@@ -94,7 +94,7 @@ render(){
         
             </div>
             : 
-            <h2>hola</h2>
+            <h2>Buscando Pelicula</h2>
         }
     </>
 )}}

@@ -30,15 +30,15 @@ render(){
         <>
         { 
         this.state.detalleSerie !== null ?
-        <div> 
+        <div className='detalle'> 
             <img src={`https://image.tmdb.org/t/p/w500/${this.state.detalleSerie.poster_path}`} alt={this.state.detalleSerie.original_name}/>
-            <h1>{this.state.detalleSerie.original_name}</h1>
-            <h3 className = "detalle" >{this.state.detalleSerie.vote_average}</h3>
-            <h3 className = "detalle" >{this.state.detalleSerie.last_air_date}</h3>
-            <h3 className = "detalle" >{this.state.detalleSerie.overview}</h3>
-            <h3 className = "detalle" >{this.state.detalleSerie.genres[0].name}</h3>
+            <h1 className='titulo1'>{this.state.detalleSerie.original_name}</h1>
+            <h3 className = "texto1" > CALIFICACION: {this.state.detalleSerie.vote_average}</h3>
+            <h3 className = "texto1" > FECHA DE ESTRENO: {this.state.detalleSerie.last_air_date}</h3>
+            <h3 className = "texto1" > SINOPSIS: {this.state.detalleSerie.overview}</h3>
+            <h3 className = "texto1" > GENERO: {this.state.detalleSerie.genres[0].name}</h3>
         </div>:
-            <h2>hola</h2>
+            <h2>Buescando Serie</h2>
         }   
         </>
     )
