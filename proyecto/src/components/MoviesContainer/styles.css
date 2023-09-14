@@ -64,4 +64,17 @@
     color: rgb(255, 255, 255);
 }
 
+@media(max-width: 720px){
+    .buscador{
+        margin-top: 72px;
+        flex-wrap: wrap;
+    }
+
+    .barras{
+        margin-top: 72px;
+        flex-wrap: wrap;
+    }
+}
+
+
 
