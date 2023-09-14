@@ -50,7 +50,7 @@ agregarAFavoritos(idPelicula){
         let arrParseado= JSON.parse(storageFav)
         arrParseado.push(idPelicula)
         let arrStringificado = JSON.stringify(arrParseado)
-          localStorage.setItem('pelisFavoritos', arrStringificado)
+          localStorage.setItem('favoritos', arrStringificado)
     }
     this.setState({
         esFavorito: true
