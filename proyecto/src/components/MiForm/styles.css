@@ -1,0 +1,14 @@
+.buscador {
+    border-radius: 30px;
+    outline: none;
+    padding: 5px;
+    background-color: rgba(227, 224, 224, 0.763);
+}
+
+.botonBuscador {
+    border-radius: 30px;
+    padding: 7px;
+    background-color: rgba(227, 224, 224, 0.763);
+    font-family: Rubik ;
+
+}

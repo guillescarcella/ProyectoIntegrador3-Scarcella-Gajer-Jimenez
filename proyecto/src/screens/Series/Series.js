@@ -3,6 +3,7 @@ import {options} from '../../configuracionAPI/constants'
 import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
 import MiForm from '../../components/MiForm/MiForm'
 
+
  export default class index extends Component {
     constructor(props){
         super(props)

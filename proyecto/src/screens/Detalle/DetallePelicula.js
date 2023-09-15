@@ -87,7 +87,7 @@ render(){
                         Sacar de favoritos
                         </button>  
                         :
-                        <button onClick={()=> this.agregarAFavoritos(this.state.detalleMovie.id)}>
+                        <button className='botonBuscador' onClick={()=> this.agregarAFavoritos(this.state.detalleMovie.id)}>
                         Agregar a favoritos
                         </button>
                     }

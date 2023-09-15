@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './styles.css';
 
 class MiForm extends Component{
     constructor(props){
@@ -24,9 +25,9 @@ class MiForm extends Component{
     render(){
         return(
             <>
-            <form onSubmit={(evento)=> this.evitarSubmit(evento)}>
-                <input onChange={(evento)=> this.guardarValor(evento)} value={this.state.valorInput}/>
-                <button>Filtrar</button>
+            <form  onSubmit={(evento)=> this.evitarSubmit(evento)}>
+                <input className="buscador" onChange={(evento)=> this.guardarValor(evento)} value={this.state.valorInput}/>
+                <button className="botonBuscador">Filtrar</button>
             </form>
             </>
         )

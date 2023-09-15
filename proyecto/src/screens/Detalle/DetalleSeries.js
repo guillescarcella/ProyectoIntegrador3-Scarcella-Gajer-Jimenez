@@ -77,11 +77,11 @@ render(){
             <div>
                     {
                         this.state.esFavoritoSerie ?
-                        <button onClick={()=> this.sacarDeFavoritos(this.state.detalleSerie.id)}>
+                        <button className='botonBuscador' onClick={()=> this.sacarDeFavoritos(this.state.detalleSerie.id)}>
                         Sacar de favoritos
                         </button>  
                         :
-                        <button onClick={()=> this.agregarAFavoritos(this.state.detalleSerie.id)}>
+                        <button classsName= "botonBuscador" onClick={()=> this.agregarAFavoritos(this.state.detalleSerie.id)}>
                         Agregar a favoritos
                         </button>
                     }
