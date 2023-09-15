@@ -8,7 +8,7 @@ import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
         super(props)
         this.state ={
             detalleSerie: null,
-            favoritos:false
+            esFavoritoSerie: false
         }
     }
 
@@ -18,11 +18,49 @@ componentDidMount(){
     .then(data => this.setState({
         detalleSerie: data
 
+}, () => {
+     let storageFavSeries = localStorage.getItem('favoritos_serie')
+    let arrParseado = JSON.parse(storageFavSeries)
+
+    if(arrParseado !== null){
+        let estaMiSerie = arrParseado.includes(this.state.detalleSerie.id)
+        if(estaMiSerie){
+            this.setState({
+                esFavoritoSerie: true
+            })
+        }
+    }
 }))
     .catch(err => console.error(err))
 }
-
-
+agregarAFavoritos(idSerie){
+    let storageFavSeries = localStorage.getItem('favoritos_serie')
+    if(storageFavSeries === null){
+        let arrIds = [idSerie]
+        let arrStringnificado = JSON.stringify(arrIds)
+        localStorage.setItem('favoritos_serie', arrStringnificado) 
+    } else{
+        let arrParseado= JSON.parse(storageFavSeries)
+        arrParseado.push(idSerie)
+        let arrStringificado = JSON.stringify(arrParseado)
+          localStorage.setItem('favoritos_serie', arrStringificado)
+    }
+    this.setState({
+        esFavoritoSerie: true
+      })
+}
+sacarDeFavoritos(idSerie){
+    let storageFavSeries = localStorage.getItem('favoritos_serie')
+    let arrParseado = JSON.parse(storageFavSeries)
+    let favsFiltrados = arrParseado.filter((id) => id !== idSerie)
+    let arrStringificado = JSON.stringify(favsFiltrados)
+    localStorage.setItem('favoritos_serie', arrStringificado)
+    
+    this.setState({
+      esFavoritoSerie: false
+    })
+    
+  }
 render(){
             console.log(this.state.detalleSerie)
     return(
@@ -37,6 +75,18 @@ render(){
             <h3 className = "texto1" > FECHA DE ESTRENO: {this.state.detalleSerie.last_air_date}</h3>
             <h3 className = "texto1" > SINOPSIS: {this.state.detalleSerie.overview}</h3>
             <h3 className = "texto1" > GENERO: {this.state.detalleSerie.genres[0].name}</h3>
+            <div>
+                    {
+                        this.state.esFavoritoSerie ?
+                        <button onClick={()=> this.sacarDeFavoritos(this.state.detalleSerie.id)}>
+                        Sacar de favoritos
+                        </button>  
+                        :
+                        <button onClick={()=> this.agregarAFavoritos(this.state.detalleSerie.id)}>
+                        Agregar a favoritos
+                        </button>
+                    }
+                </div>
         </div>:
             <h2>Buescando Serie</h2>
         }   
