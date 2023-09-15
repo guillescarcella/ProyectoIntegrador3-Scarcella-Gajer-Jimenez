@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './styles.css';
 import Movie from '../Movie/Movie'
 import Loader from '../Loader/Loader';
+import MiForm from '../MiForm/MiForm';
 
 class MoviesContainer extends Component {
     constructor(props) {
@@ -25,6 +26,7 @@ class MoviesContainer extends Component {
                         nombre={movie.title}
                         imagen={movie.poster_path}
                         descripcion={movie.overview}
+                      
                         />
                     )
                 

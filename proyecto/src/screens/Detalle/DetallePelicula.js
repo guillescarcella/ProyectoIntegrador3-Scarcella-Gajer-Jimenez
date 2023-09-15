@@ -23,7 +23,7 @@ componentDidMount(){
         let arrParseado = JSON.parse(storageFav)
     
         if(arrParseado !== null){
-            let estaMiPelicula = arrParseado.includes(this.props.id)
+            let estaMiPelicula = arrParseado.includes(this.state.detalleMovie.id)
             if(estaMiPelicula){
                 this.setState({
                     esFavorito: true
@@ -60,6 +60,7 @@ sacarDeFavoritos(idPelicula){
     let favsFiltrados = arrParseado.filter((id) => id !== idPelicula)
     let arrStringificado = JSON.stringify(favsFiltrados)
     localStorage.setItem('favoritos', arrStringificado)
+    
     this.setState({
       esFavorito: false
     })
@@ -82,11 +83,11 @@ render(){
                 <div>
                     {
                         this.state.esFavorito ?
-                        <button onClick={()=> this.sacarDeFavoritos(this.props.id)}>
+                        <button onClick={()=> this.sacarDeFavoritos(this.state.detalleMovie.id)}>
                         Sacar de favoritos
                         </button>  
                         :
-                        <button onClick={()=> this.agregarAFavoritos(this.props.id)}>
+                        <button onClick={()=> this.agregarAFavoritos(this.state.detalleMovie.id)}>
                         Agregar a favoritos
                         </button>
                     }

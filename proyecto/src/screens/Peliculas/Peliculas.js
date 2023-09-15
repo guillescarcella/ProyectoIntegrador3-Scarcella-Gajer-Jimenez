@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {options} from '../../configuracionAPI/constants'
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer'
+import MiForm from '../../components/MiForm/MiForm'
 
  export default class index extends Component {
     constructor(props){
@@ -32,16 +33,17 @@ TraerMasMovies(){
     }))
 }
 
-filtrarMovies(nombre){
-    let moviesFiltradas = this.state.backup.filter((elm) => elm.title.toLowerCase().includes(nombre.toLowerCase()))
+filtrarPeliculas(nombre){
+    let peliculasFiltradas = this.state.backup.filter((elm) => elm.title.toLowerCase().includes(nombre.toLowerCase()))
     this.setState({
-        movies: moviesFiltradas
+      movies: peliculasFiltradas,
     })
-}
+  }
 
 render(){
     return(
         <div>
+            <MiForm filtrarPeliculas={(nombre) => this.filtrarPeliculas(nombre)} />
             <h1 className='barras'> PELICULAS </h1>
             {/* FALTA EL FORM DE BUSCAR PELICULAS */}
             <MoviesContainer movies={this.state.movies}/>

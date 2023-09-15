@@ -18,7 +18,7 @@ componentDidMount(){
             let favsParseados = JSON.parse(storageFavs)
             Promise.all(
                 favsParseados.map(id =>
-                    fetch("https://api.themoviedb.org/3/movie/" + id, options) 
+                    fetch('https://api.themoviedb.org/3/movie/' + id) 
                     .then(resp => resp.json())
                 )
             )

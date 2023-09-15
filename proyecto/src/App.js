@@ -9,6 +9,7 @@ import DetallePelicula from './screens/Detalle/DetallePelicula'
 import DetalleSeries from './screens/Detalle/DetalleSeries'
 import Favoritos from './screens/Favoritos/Favoritos';
 import Loader from "./components/Loader/Loader";
+import MiForm from './components/MiForm/MiForm';
 
 function App() {
 
