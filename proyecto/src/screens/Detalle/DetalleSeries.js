@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {options} from '../../configuracionAPI/constants'
-import MoviesContainer from '../../components/MoviesContainer/MoviesContainer'
-import SeriesContainer from '../../components/SeriesContainer/SeriesContainer'
+import Loader from '../../components/Loader/Loader'
 
  export default class DetalleSeries extends Component {
     constructor(props){
@@ -88,7 +87,7 @@ render(){
                     }
                 </div>
         </div>:
-            <h2>Buescando Serie</h2>
+            <Loader/>
         }   
         </>
     )

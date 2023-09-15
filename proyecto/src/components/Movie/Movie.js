@@ -12,14 +12,7 @@ class Movie extends Component {
         } 
     }
 
-    evitarSubmit(event) {
-        event.preventDefault();
-    }
-
-    controlarCambios(event) {
-        this.setState({valor: event.target.value});
-        console.log(event)
-    } // para que es esto guille?
+    
 
     descripcion(){
         if (this.state.mostrar == true ){this.setState({mostrar: false, mensaje: "Ver descripcion"})}

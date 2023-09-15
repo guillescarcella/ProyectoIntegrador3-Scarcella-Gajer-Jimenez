@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {options} from '../../configuracionAPI/constants'
-
+import Loader from '../../components/Loader/Loader'
 
 
  export default class DetallePelicula extends Component {
@@ -95,7 +95,8 @@ render(){
         
             </div>
             : 
-            <h2>Buscando Pelicula</h2>
+            <Loader/>
+            
         }
     </>
 )}}

@@ -45,7 +45,6 @@ render(){
         <div>
             <MiForm filtrarPeliculas={(nombre) => this.filtrarPeliculas(nombre)} />
             <h1 className='barras'> PELICULAS </h1>
-            {/* FALTA EL FORM DE BUSCAR PELICULAS */}
             <MoviesContainer movies={this.state.movies}/>
             <button onClick={()=> this.TraerMasMovies()}> Cargar mas peliculas </button>
             
