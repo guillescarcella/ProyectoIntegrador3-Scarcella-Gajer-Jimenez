@@ -77,7 +77,7 @@ render(){
             <div>
                     {
                         this.state.esFavoritoSerie ?
-                        <button className='botonBuscador' onClick={()=> this.sacarDeFavoritos(this.state.detalleSerie.id)}>
+                        <button className="botonBuscador" onClick={()=> this.sacarDeFavoritos(this.state.detalleSerie.id)}>
                         Sacar de favoritos
                         </button>  
                         :
